@@ -71,21 +71,23 @@ function DeliverySchedule() {
   }
 
   async function handleUpdateDelivery(delivery) {
-    const response = await fetch(`${config.backendUrl}/api/delivery-schedule/${delivery._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(delivery),
-      }
-    );
-    const updatedDelivery = await response.json();
-    const updatedDeliveries = deliveries.map((del) =>
-      del._id === delivery._id ? updatedDelivery : del
-    );
+    const updatedDelivery = {
+      ...delivery,
+      ...formData,
+      secondDelivery: calculateSecondDelivery(formData.date, formData.frequency)
+    };
+    const response = await fetch(`${config.backendUrl}/api/delivery-schedule/${delivery._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedDelivery),
+    });
+    const updatedDeliveryData = await response.json();
+    const updatedDeliveries = deliveries.map((del) => del._id === updatedDeliveryData._id ? updatedDeliveryData : del);
     setDeliveries(updatedDeliveries);
   }
+  
 
   const calculateSecondDelivery = (date, frequency) => {
     let secondDelivery;
