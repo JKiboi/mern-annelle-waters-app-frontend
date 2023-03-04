@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import config from '../config/config';
+import config from "../config/config";
 
 import "../styles/ClientManagement.css";
 
@@ -7,7 +7,6 @@ function ClientManagement() {
   const [clients, setClients] = useState([]);
 
   const API_URL = `${config.backendUrl}/api/clients`;
-
 
   useEffect(() => {
     async function fetchData() {

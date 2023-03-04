@@ -15,7 +15,9 @@ function DeliverySchedule() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${config.backendUrl}/api/delivery-schedule`);
+      const response = await fetch(
+        `${config.backendUrl}/api/delivery-schedule`
+      );
       const data = await response.json();
       setDeliveries(data);
     }
@@ -69,13 +71,16 @@ function DeliverySchedule() {
   }
 
   async function handleUpdateDelivery(delivery) {
-    const response = await fetch(`${config.backendUrl}/api/delivery-schedule/${delivery._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(delivery),
-    });
+    const response = await fetch(
+      `${config.backendUrl}/api/delivery-schedule/${delivery._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(delivery),
+      }
+    );
     const updatedDelivery = await response.json();
     const updatedDeliveries = deliveries.map((del) =>
       del._id === delivery._id ? updatedDelivery : del
@@ -118,7 +123,6 @@ function DeliverySchedule() {
   };
 
   const { date, name, phoneNumber, address, consumption, frequency } = formData;
-
 
   return (
     <div className="delivery-schedule">

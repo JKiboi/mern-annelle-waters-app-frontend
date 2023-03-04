@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/SalesTracking.css";
-import config from '../config/config';
-
+import config from "../config/config";
 
 function SalesTracking() {
   const [sales, setSales] = useState([]);
