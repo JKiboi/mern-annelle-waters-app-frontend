@@ -41,12 +41,13 @@ const InventoryManagement = () => {
 
   const handleUpdate = async (event, id) => {
     event.preventDefault();
-    const result = await axios.put(`${config.backendUrl}/api/inventory`, formData);
+    const result = await axios.put(`${config.backendUrl}/api/inventory/${id}`, formData);
     setInventory(
       inventory.map((item) => (item._id === id ? result.data : item))
     );
     setFormData({ name: "", currentLevel: "", minThreshold: "" });
   };
+ 
 
   const handleDelete = async (id) => {
     await axios.delete(`${config.backendUrl}/api/inventory/${id}`);
