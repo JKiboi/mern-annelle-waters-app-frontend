@@ -71,8 +71,7 @@ function DeliverySchedule() {
   }
 
   async function handleUpdateDelivery(delivery) {
-    const response = await fetch(
-      `${config.backendUrl}/api/delivery-schedule/${delivery._id}`,
+    const response = await fetch(`${config.backendUrl}/api/delivery-schedule/${delivery._id}`,
       {
         method: "PUT",
         headers: {

@@ -25,7 +25,7 @@ function ClientManagement() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`/api/clients/${id}`, {
+    await fetch(`${API_URL}/${id}`, {
       method: "DELETE",
     });
     const updatedClients = clients.filter((client) => client.index !== id);

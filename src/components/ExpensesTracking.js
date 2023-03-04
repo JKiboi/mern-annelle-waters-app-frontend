@@ -54,7 +54,6 @@ function ExpensesTracking() {
     });
   }
   
-
   async function handleUpdateExpense(expense) {
     const response = await fetch(`${apiUrl}/${expense._id}`, {
       method: "PUT",
