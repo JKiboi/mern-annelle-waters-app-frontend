@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import config from "../config/config";
+
 import "../styles/InventoryManagement.css";
 
 const InventoryManagement = () => {
@@ -12,7 +14,7 @@ const InventoryManagement = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("/api/inventory");
+      const result = await axios.get(`${config.backendUrl}/api/inventory`);
       setInventory(result.data);
     };
     fetchData();
@@ -27,7 +29,7 @@ const InventoryManagement = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await axios.post("/api/inventory", formData);
+    const result = await axios.post(`${config.backendUrl}/api/inventory`, formData);
     setInventory([...inventory, result.data]);
     setFormData({ name: "", currentLevel: "", minThreshold: "" });
   };
@@ -39,7 +41,7 @@ const InventoryManagement = () => {
 
   const handleUpdate = async (event, id) => {
     event.preventDefault();
-    const result = await axios.put(`/api/inventory/${id}`, formData);
+    const result = await axios.post(`${config.backendUrl}/api/inventory`, formData);
     setInventory(
       inventory.map((item) => (item._id === id ? result.data : item))
     );
@@ -47,7 +49,8 @@ const InventoryManagement = () => {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`/api/inventory/${id}`);
+    await axios.delete(`${config.backendUrl}/api/inventory/${id}`);
+
     setInventory(inventory.filter((item) => item._id !== id));
   };
 

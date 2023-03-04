@@ -13,7 +13,7 @@ import {
   BarChart,
   Bar,
 } from "recharts";
-
+import config from "../config/config";
 import "../styles/Analytics.css";
 
 function Analytics() {
@@ -26,7 +26,7 @@ function Analytics() {
 
   useEffect(() => {
     async function fetchSalesData() {
-      const res = await fetch("/api/sales");
+      const res = await fetch(`${config.backendUrl}/api/sales`);
       const data = await res.json();
       setSales(data);
     }
@@ -35,7 +35,7 @@ function Analytics() {
 
   useEffect(() => {
     async function fetchExpensesData() {
-      const res = await fetch("/api/expenses");
+      const res = await fetch(`${config.backendUrl}/api/expenses`);
       const data = await res.json();
       setExpenses(data);
     }
@@ -44,7 +44,7 @@ function Analytics() {
 
   useEffect(() => {
     async function fetchExpensesPieData() {
-      const res = await fetch("/api/expenses-pie");
+      const res = await fetch(`${config.backendUrl}/api/expenses-pie`);
       if (res.ok) {
         const data = await res.json();
         setExpensesPie(data);
@@ -57,7 +57,7 @@ function Analytics() {
 
   useEffect(() => {
     async function fetchConsumablesData() {
-      const res = await fetch("/api/consumables");
+      const res = await fetch(`${config.backendUrl}/api/consumables`);
       const data = await res.json();
       setInventory(data);
     }

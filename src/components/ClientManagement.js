@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import config from '../config/config';
+
 import "../styles/ClientManagement.css";
 
 function ClientManagement() {
   const [clients, setClients] = useState([]);
 
+  const API_URL = `${config.backendUrl}/api/clients`;
+
+
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/clients");
+      const response = await fetch(API_URL);
       const data = await response.json();
       setClients(data);
     }
@@ -14,7 +19,7 @@ function ClientManagement() {
   }, []);
 
   const handleEdit = async (id) => {
-    const response = await fetch(`/api/clients/${id}`);
+    const response = await fetch(`${API_URL}/${id}`);
     const data = await response.json();
     console.log(data);
     // code to update the form with the client data
@@ -45,7 +50,7 @@ function ClientManagement() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/api/clients", {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

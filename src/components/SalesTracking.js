@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/SalesTracking.css";
+import config from '../config/config';
+
 
 function SalesTracking() {
   const [sales, setSales] = useState([]);
@@ -14,7 +16,7 @@ function SalesTracking() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/sales");
+      const response = await fetch(`${config.backendUrl}/api/sales`);
       const data = await response.json();
       setSales(data);
     }
@@ -24,7 +26,7 @@ function SalesTracking() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const res = await fetch("/api/expenses");
+        const res = await fetch(`${config.backendUrl}/api/expenses`);
         const data = await res.json();
         setExpenses(data);
       } catch (error) {
@@ -42,7 +44,7 @@ function SalesTracking() {
   };
 
   async function handleDeleteSale(id) {
-    await fetch(`/api/sales/${id}`, {
+    await fetch(`${config.backendUrl}/api/sales/${id}`, {
       method: "DELETE",
     });
     const updatedSales = sales.filter((sale) => sale._id !== id);
@@ -51,7 +53,7 @@ function SalesTracking() {
 
   async function handleAddSale(e) {
     e.preventDefault();
-    const response = await fetch("/api/sales", {
+    const response = await fetch(`${config.backendUrl}/api/sales`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +80,7 @@ function SalesTracking() {
   }, [sales]);
 
   async function handleUpdateSale(sale) {
-    const response = await fetch(`/api/sales/${sale._id}`, {
+    const response = await fetch(`${config.backendUrl}/api/sales/${sale._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

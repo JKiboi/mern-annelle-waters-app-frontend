@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ExpensesTracking.css";
+import config from "../config/config";
+
 
 function ExpensesTracking() {
   const [expenses, setExpenses] = useState([]);
@@ -8,10 +10,11 @@ function ExpensesTracking() {
       description: "",
       amount: "",
     });
+    const apiUrl = `${config.backendUrl}/api/expenses`;
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/expenses");
+      const response = await fetch(apiUrl);
       const data = await response.json();
       setExpenses(data);
     }
@@ -26,7 +29,7 @@ function ExpensesTracking() {
   };
 
   async function handleDeleteExpense(id) {
-    await fetch(`/api/expenses/${id}`, {
+    await fetch(`${apiUrl}/${id}`, {
       method: "DELETE",
     });
     const updatedExpenses = expenses.filter((expense) => expense._id !== id);
@@ -35,7 +38,7 @@ function ExpensesTracking() {
 
   async function handleAddExpense(e) {
     e.preventDefault();
-    const response = await fetch("/api/expenses", {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +56,7 @@ function ExpensesTracking() {
   
 
   async function handleUpdateExpense(expense) {
-    const response = await fetch(`/api/expenses/${expense._id}`, {
+    const response = await fetch(`${apiUrl}/${expense._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +74,6 @@ function ExpensesTracking() {
   expenses.forEach((expense) => {
     totalExpenses += expense.amount;
   });
-
   return (
     <div className="expenses-tracking-container">
       <h2 className="expenses-tracking-title">Expenses Tracking</h2>

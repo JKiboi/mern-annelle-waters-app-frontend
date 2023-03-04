@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import "../styles/DeliverySchedule.css";
+import config from "../config/config";
 
 function DeliverySchedule() {
   const [deliveries, setDeliveries] = useState([]);
@@ -15,7 +15,7 @@ function DeliverySchedule() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/delivery-schedule");
+      const response = await fetch(`${config.backendUrl}/api/delivery-schedule`);
       const data = await response.json();
       setDeliveries(data);
     }
@@ -30,7 +30,7 @@ function DeliverySchedule() {
   };
 
   async function handleDeleteDelivery(id) {
-    await fetch(`/api/delivery-schedule/${id}`, {
+    await fetch(`${config.backendUrl}/api/delivery-schedule/${id}`, {
       method: "DELETE",
     });
     const updatedDeliveries = deliveries.filter(
@@ -49,7 +49,7 @@ function DeliverySchedule() {
       ),
     };
 
-    const response = await fetch("/api/delivery-schedule", {
+    const response = await fetch(`${config.backendUrl}/api/delivery-schedule`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ function DeliverySchedule() {
   }
 
   async function handleUpdateDelivery(delivery) {
-    const response = await fetch(`/api/delivery-schedule/${delivery._id}`, {
+    const response = await fetch(`${config.backendUrl}/api/delivery-schedule/${delivery._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -118,6 +118,7 @@ function DeliverySchedule() {
   };
 
   const { date, name, phoneNumber, address, consumption, frequency } = formData;
+
 
   return (
     <div className="delivery-schedule">
