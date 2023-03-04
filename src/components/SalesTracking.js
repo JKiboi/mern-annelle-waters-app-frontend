@@ -72,7 +72,7 @@ function SalesTracking() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("/api/sales");
+      const response = await fetch(`${config.backendUrl}/api/sales`);
       const data = await response.json();
       setSales(data);
     }
