@@ -41,7 +41,7 @@ const InventoryManagement = () => {
 
   const handleUpdate = async (event, id) => {
     event.preventDefault();
-    const result = await axios.post(`${config.backendUrl}/api/inventory`, formData);
+    const result = await axios.put(`${config.backendUrl}/api/inventory`, formData);
     setInventory(
       inventory.map((item) => (item._id === id ? result.data : item))
     );
