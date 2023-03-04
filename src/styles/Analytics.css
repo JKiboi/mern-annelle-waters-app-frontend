@@ -1,0 +1,20 @@
+.analytics-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .line-chart,
+    .bar-chart,
+    .pie-chart,
+    .consumables-bar-chart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    }
+    
+    

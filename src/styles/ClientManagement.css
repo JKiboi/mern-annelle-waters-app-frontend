@@ -1,0 +1,91 @@
+.client-management {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
+  text-align: center;
+}
+
+.client-management__title {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.client-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.client-management__table th {
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #333;
+}
+
+.client-management__table td {
+  padding: 10px;
+  border: 1px solid #333;
+  font-size: 16px;
+}
+
+.client-management__edit-btn,
+.client-management__delete-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.client-management__edit-btn:hover,
+.client-management__delete-btn:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.client-management__add-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.client-management__form {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.client-management__form input[type="text"] {
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.client-management__form button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.client-management__form button[type="submit"]:hover {
+  background-color: #fff;
+  color: #333;
+}

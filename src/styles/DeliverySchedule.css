@@ -1,0 +1,74 @@
+.delivery-schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.delivery-schedule__title {
+  color: #1f7a74;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.delivery-schedule__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.delivery-schedule__table-head {
+  background-color: #1f7a74;
+  color: #fff;
+}
+
+.delivery-schedule__table-head-cell {
+  padding: 10px;
+  text-align: left;
+}
+
+.delivery-schedule__table-body {
+  background-color: #e9f7f6;
+}
+
+.delivery-schedule__table-row {
+  border-bottom: 1px solid #1f7a74;
+}
+
+.delivery-schedule__table-cell {
+  padding: 10px;
+  text-align: left;
+}
+
+.delivery-schedule__form {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.delivery-schedule__form-input {
+  width: calc(16.67% - 10px);
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.delivery-schedule__form-button {
+  background-color: #1f7a74;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delivery-schedule__action-button {
+  background-color: #1f7a74;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}

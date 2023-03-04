@@ -1,0 +1,62 @@
+.expenses-tracking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.expenses-tracking-title {
+  color:  #1f7a74;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.expenses-tracking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+.expenses-tracking-table th {
+  border: 1px solid #1f7a74;
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+}
+
+.expenses-tracking-table td {
+  border: 1px solid #1f7a74;
+  padding: 10px;
+  text-align: left;
+}
+
+.expenses-tracking-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.expenses-tracking-form input {
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #1f7a74;
+  border-radius: 5px;
+}
+
+.expenses-tracking-form button {
+  padding: 10px;
+  background-color: #1f7a74;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.total-expenses {
+  color: #1f7a74;
+  font-size: 24px;
+  font-weight: bold;
+}
