@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import config from "../config/config";
-
 import "../styles/ClientManagement.css";
+
+const API_URL = `${config.backendUrl}/api/clients`;
 
 function ClientManagement() {
   const [clients, setClients] = useState([]);
-
-  const API_URL = `${config.backendUrl}/api/clients`;
 
   useEffect(() => {
     async function fetchData() {
@@ -28,7 +27,7 @@ function ClientManagement() {
     await fetch(`${API_URL}/${id}`, {
       method: "DELETE",
     });
-    const updatedClients = clients.filter((client) => client.index !== id);
+    const updatedClients = clients.filter((client) => client.id !== id);
     setClients(updatedClients);
   };
 
@@ -66,7 +65,6 @@ function ClientManagement() {
       consumption: "",
     });
   };
-
   return (
     <div className="client-management">
       <h1 className="client-management__title">Client Management</h1>
