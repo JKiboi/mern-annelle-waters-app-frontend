@@ -3,7 +3,7 @@ const config = {
       backendUrl: 'http://localhost:5000'
     },
     production: {
-      backendUrl: 'https://mern-carbid-app-api.onrender.com'
+      backendUrl: 'https://mern-annelle-app-api.onrender.com'
     }
   };
   
