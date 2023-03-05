@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/DeliverySchedule.css";
 import config from "../config/config";
+import "../styles/DeliverySchedule.css";
+
 
 function DeliverySchedule() {
   const [deliveries, setDeliveries] = useState([]);
