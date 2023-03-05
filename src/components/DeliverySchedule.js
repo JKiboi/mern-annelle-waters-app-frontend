@@ -15,9 +15,7 @@ function DeliverySchedule() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        `${config.backendUrl}/api/delivery-schedule`
-      );
+      const response = await fetch(`${config.backendUrl}/api/delivery-schedule`);
       const data = await response.json();
       setDeliveries(data);
     }
