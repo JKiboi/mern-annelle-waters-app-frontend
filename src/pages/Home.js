@@ -1,7 +1,14 @@
-import React, { useState } from "react";
-import Swiper from "react-id-swiper";
-import "swiper/swiper-bundle.css";
-//import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React from "react";
+import LazyLoad from "react-lazy-load";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import water1 from "../assets/water1.jpg";
 import water2 from "../assets/water4.jpg";
 import water3 from "../assets/water2.jpg";
@@ -16,38 +23,41 @@ import customer3 from "../assets/customer3.jpg";
 import "../styles/Home.css";
 
 function Home() {
-  const [setSwiper] = useState(null);
-
-  const params = {
-    slidesPerView: "auto",
-    spaceBetween: 16,
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  };
-
   return (
     <div className="home">
-      <Swiper {...params} getSwiper={setSwiper}>
-        <div className="home__slide">
-          <img src={water1} alt="Slide 1" />
-        </div>
-        <div className="home__slide">
-          <img src={water2} alt="Slide 2" />
-        </div>
-        <div className="home__slide">
-          <img src={water3} alt="Slide 3" />
-        </div>
-        <div className="home__slide">
-          <img src={water4} alt="Slide 4" />
-        </div>
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        <SwiperSlide>
+          <LazyLoad height={577} offset={300}>
+            <img src={water1} alt="Slide 1" className="home__slide" />
+          </LazyLoad>
+        </SwiperSlide>
+        <SwiperSlide>
+          <LazyLoad height={577} offset={300}>
+            <img src={water2} alt="Slide 2" className="home__slide" />
+          </LazyLoad>
+        </SwiperSlide>
+        <SwiperSlide>
+          <LazyLoad height={577} offset={300}>
+            <img src={water3} alt="Slide 3" className="home__slide" />
+          </LazyLoad>
+        </SwiperSlide>
+        <SwiperSlide>
+          <LazyLoad height={577} offset={300}>
+            <img src={water4} alt="Slide 4" className="home__slide" />
+          </LazyLoad>
+        </SwiperSlide>
       </Swiper>
+
       <div className="title__description">
         <h1 className="home__title">Welcome to Annelle Waters</h1>
         <p className="home__description">
@@ -158,7 +168,7 @@ function Home() {
         <div className="home__map-section">
           <h2 className="home__subtitle">Delivery Map</h2>
           <iframe
-            title="Unique title for this iframe" 
+            title="Unique title for this iframe"
             src="https://maps.google.com/maps?q=barnabbas%20nakuru&t=&z=13&ie=UTF8&iwloc=&output=embed"
             width="80%"
             height="500"

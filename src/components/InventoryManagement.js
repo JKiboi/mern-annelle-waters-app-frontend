@@ -7,7 +7,7 @@ import "../styles/InventoryManagement.css";
 const InventoryManagement = () => {
   const [inventory, setInventory] = useState([]);
   const [formData, setFormData] = useState({
-    name: "",
+    item: "",
     currentLevel: "",
     minThreshold: "",
   });
@@ -31,7 +31,7 @@ const InventoryManagement = () => {
     event.preventDefault();
     const result = await axios.post(`${config.backendUrl}/api/inventory`, formData);
     setInventory([...inventory, result.data]);
-    setFormData({ name: "", currentLevel: "", minThreshold: "" });
+    setFormData({ item: "", currentLevel: "", minThreshold: "" });
   };
 
   const handleEdit = async (id) => {
@@ -45,13 +45,11 @@ const InventoryManagement = () => {
     setInventory(
       inventory.map((item) => (item._id === id ? result.data : item))
     );
-    setFormData({ name: "", currentLevel: "", minThreshold: "" });
+    setFormData({ item: "", currentLevel: "", minThreshold: "" });
   };
- 
 
   const handleDelete = async (id) => {
     await axios.delete(`${config.backendUrl}/api/inventory/${id}`);
-
     setInventory(inventory.filter((item) => item._id !== id));
   };
 
@@ -61,7 +59,7 @@ const InventoryManagement = () => {
       <table className="inventory-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Item</th>
             <th>Current Level</th>
             <th>Minimum Threshold</th>
             <th>Actions</th>
@@ -70,7 +68,7 @@ const InventoryManagement = () => {
         <tbody>
           {inventory.map((item) => (
             <tr key={item._id} className="inventory-table-row">
-              <td>{item.name}</td>
+              <td>{item.item}</td>
               <td>{item.currentLevel}</td>
               <td>{item.minThreshold}</td>
               <td>
@@ -85,9 +83,9 @@ const InventoryManagement = () => {
         <input
           className="form-input"
           type="text"
-          placeholder="Name"
-          name="name"
-          value={formData.name}
+          placeholder="Item"
+          name="item"
+          value={formData.item} 
           onChange={handleChange}
         />
         <input
@@ -108,11 +106,8 @@ const InventoryManagement = () => {
         />
         <button className="add-inventory-button" type="submit">{formData._id ? "Update" : "Add"}</button>
       </form>
-
-
-
-
     </div>
   );
 };
+
 export default InventoryManagement;
