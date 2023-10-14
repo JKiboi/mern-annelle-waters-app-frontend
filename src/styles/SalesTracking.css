@@ -1,15 +1,15 @@
-/* Sales Tracking CSS */
-
+/* Base styles */
 .sales-tracking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f0f0f0;
   padding: 20px;
+  margin-top: 80px; /* Ensure content is below the Navbar links */
 }
 
 .sales-tracking-title {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Smaller font size for better fit on small screens */
   color: #333;
   margin-bottom: 20px;
 }
@@ -24,12 +24,12 @@ th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
+  font-size: 1rem; /* Smaller font size for better fit on small screens */
 }
 
 th {
   background-color: #333;
   color: #fff;
-  font-size: 1.2rem;
 }
 
 button {
@@ -38,7 +38,7 @@ button {
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Smaller font size for better fit on small screens */
   cursor: pointer;
   margin-right: 10px;
 }
@@ -49,9 +49,9 @@ button:hover {
 }
 
 .sales-tracking_form {
-  width: 70%;
+  width: 90%; /* Increased width for small screens */
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Stack input fields in a column on small screens */
   align-items: center;
   background-color: #fff;
   padding: 20px;
@@ -63,10 +63,10 @@ button:hover {
 .sales-tracking_form input[type="text"],
 .sales-tracking_form input[type="number"],
 .sales-tracking_form input[type="date"] {
-  width: 100%;
+  width: 100%; /* Full width for smaller screens */
   padding: 8px;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 1rem; /* Smaller font size for better fit on small screens */
+  margin-bottom: 10px;
 }
 
 .sales-tracking_form button[type="submit"] {
@@ -75,13 +75,14 @@ button:hover {
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Smaller font size for better fit on small screens */
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .sales-tracking__summary {
   display: flex;
+  flex-wrap: wrap; /* Allow elements to wrap on small screens */
   justify-content: space-between;
   width: 100%;
   margin-top: 20px;
@@ -97,15 +98,16 @@ button:hover {
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  width: 30%;
+  width: 100%; /* Full width for small screens */
+  margin-top: 20px;
 }
 
 .sales-tracking__summary__title {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Smaller font size for better fit on small screens */
   color: #333;
   margin-bottom: 10px;
 }
 
 .sales-tracking__summary__amount {
-  font-size: 2rem;
+  font-size: 1.2rem; /* Adjusted font size for better visibility on small screens */
 }

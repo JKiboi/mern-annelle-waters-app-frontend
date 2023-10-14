@@ -1,62 +1,101 @@
-/* Add these styles for the mobile menu icon */
+/* Container for the entire navigation bar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent black background color */
+  color: #fff; /* White text color */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color 0.3s; /* Smooth color transition */
+  height: 60px; /* Reduced height for the navbar */
+}
+
+/* Container for the content within the navigation bar */
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* Adjusted padding */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Brand/logo text styling */
+.navbar__brand {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%
+}
+
+/* Hamburger menu toggle button */
 .navbar__menu-toggle {
-  display: none;
+  display: none; /* Initially hidden on larger screens */
   cursor: pointer;
 }
 
+/* Hamburger menu icon styling */
 .bar {
-  width: 30px;
+  width: 25px;
   height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 3px;
 }
 
-.navbar.mobile-open .navbar__menu-toggle .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+/* Menu items (list) styling */
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar.mobile-open .navbar__menu-toggle .bar:nth-child(2) {
-  opacity: 0;
+/* Individual menu item styling */
+.navbar__item {
+  margin: 0 1rem;
+  /* Additional styles for hover or active state if desired */
 }
 
-.navbar.mobile-open .navbar__menu-toggle .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+/* Styling for links in the menu */
+.navbar__link {
+  color: darkgreen;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.3s, background-color 0.3s; /* Smooth color and background-color transition */
+  padding: 10px; /* Add padding to links */
 }
 
-/* Adjust existing styles for smaller screens */
+/* Change link background color on hover */
+.navbar__link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background on hover */
+  color: #007bff; /* Change link color on hover */
+}
+
+/* Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
   .navbar__menu-toggle {
-    display: block;
+    display: block; /* Show the hamburger menu button on smaller screens */
   }
 
   .navbar__menu {
+    display: none; /* Hide the menu on smaller screens by default */
     flex-direction: column;
     position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #00b8d4;
+    top: 60px; /* Adjusted top position */
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background for the mobile menu */
     width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
   }
 
   .navbar.mobile-open .navbar__menu {
-    max-height: 300px; /* Adjust the height as needed */
+    display: flex; /* Show the menu when mobile-open class is applied */
   }
 
-  .navbar__item {
-    margin-left: 0;
-    text-align: center;
-  }
-
-  .navbar__link {
-    padding: 1rem;
-  }
-
-  .navbar__brand {
-    margin: 1rem;
-    text-align: center;
+  /* Style the links in the mobile menu */
+  .navbar.mobile-open .navbar__link {
+    padding: 1rem 2rem;
   }
 }

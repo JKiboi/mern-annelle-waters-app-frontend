@@ -1,17 +1,23 @@
+/* Apply mobile responsiveness using media queries */
+
+/* Base styles */
 .inventory-management-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 20px; /* Reduced padding for smaller screens */
+  margin-top: 70px; /* Ensure content is below the Navbar links */
 }
 
+/* Title */
 .inventory-management-title {
   color: #1f7a74;
-  font-size: 36px;
+  font-size: 24px; /* Smaller font size for better fit on small screens */
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 20px; /* Reduced margin for spacing */
 }
 
+/* Table */
 .inventory-table {
   width: 100%;
   border-collapse: collapse;
@@ -38,20 +44,23 @@
 .inventory-table td {
   padding: 10px;
   text-align: left;
+  font-size: 14px; /* Smaller font size for better fit on small screens */
 }
 
+/* Form */
 form {
   display: flex;
+  flex-direction: column; /* Stack input fields in a column on small screens */
   align-items: center;
-  margin-top: 50px;
-  width: 100%;
+  margin-top: 20px; /* Adjusted margin for spacing */
 }
 
 .form-input {
-  width: calc(16.67% - 10px);
-  margin-right: 10px;
+  width: 100%; /* Full width for smaller screens */
+  margin-bottom: 10px;
   padding: 10px;
-  font-size: 16px;
+  border: 1px solid #1f7a74;
+  border-radius: 5px;
 }
 
 .add-inventory-button {

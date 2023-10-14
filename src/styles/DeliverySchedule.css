@@ -1,22 +1,32 @@
+/* Apply mobile responsiveness using media queries */
+
+/* Base styles */
 .delivery-schedule {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 20px; /* Reduced padding for smaller screens */
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto 20px; /* Adjusted margin for spacing below NavBar */
 }
 
+/* Title */
 .delivery-schedule__title {
   color: #1f7a74;
-  font-size: 36px;
+  font-size: 24px; /* Smaller font size for better fit on small screens */
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 20px; /* Reduced margin for spacing */
+  margin-top: 30px; /* Added margin-top to create space */
 }
 
+/* Table */
 .delivery-schedule__table {
   width: 100%;
   border-collapse: collapse;
 }
 
+/* Table headers */
 .delivery-schedule__table-head {
   background-color: #1f7a74;
   color: #fff;
@@ -27,6 +37,7 @@
   text-align: left;
 }
 
+/* Table body */
 .delivery-schedule__table-body {
   background-color: #e9f7f6;
 }
@@ -38,37 +49,69 @@
 .delivery-schedule__table-cell {
   padding: 10px;
   text-align: left;
+  font-size: 14px; /* Smaller font size for better fit on small screens */
 }
 
+/* Form */
 .delivery-schedule__form {
   display: flex;
+  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
   align-items: center;
-  margin-top: 50px;
+  margin-top: 20px; /* Reduced margin-top for spacing */
   width: 100%;
 }
 
+/* Form inputs */
 .delivery-schedule__form-input {
-  width: calc(16.67% - 10px);
-  margin-right: 10px;
+  width: 100%; /* Full width for smaller screens */
+  margin-bottom: 10px;
   padding: 10px;
   font-size: 16px;
 }
 
-.delivery-schedule__form-button {
+/* Form select input */
+.delivery-schedule__form-select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Form buttons */
+.delivery-schedule__form-button,
+.delivery-schedule__action-button {
   background-color: #1f7a74;
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.delivery-schedule__action-button {
-  background-color: #1f7a74;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-right: 10px;
+/* Media Query for smaller screens (e.g., smartphones) */
+@media (max-width: 768px) {
+  /* Further reduce padding and adjust other styles for smaller screens as needed */
+  .delivery-schedule {
+    padding: 10px;
+  }
+
+  .delivery-schedule__table-cell {
+    font-size: 12px; /* Further reduce font size for smaller screens */
+  }
+
+  .delivery-schedule__title {
+    font-size: 20px; /* Slightly smaller font size for smaller screens */
+  }
+
+  /* Ensure the "Second Delivery" column text does not wrap excessively */
+  .delivery-schedule__table-head-cell:last-child,
+  .delivery-schedule__table-cell:last-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Adjust other styles for smaller screens as needed */
 }

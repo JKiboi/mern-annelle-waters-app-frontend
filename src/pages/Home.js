@@ -31,7 +31,9 @@ function Home() {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        autoplay
+        autoplay={{
+          delay: 16000, // Adjust the delay to make it twice as slow (default is 2000ms)
+        }}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}

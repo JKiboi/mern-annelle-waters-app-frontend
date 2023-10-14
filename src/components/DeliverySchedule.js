@@ -42,14 +42,14 @@ function DeliverySchedule() {
 
   async function handleAddDelivery(e) {
     e.preventDefault();
+    const formattedDate = date.toISOString().split('T')[0]; // Format date as "yyyy-MM-dd"
+  
     const delivery = {
       ...formData,
-      secondDelivery: calculateSecondDelivery(
-        formData.date,
-        formData.frequency
-      ),
+      date: formattedDate, // Use the formatted date
+      secondDelivery: calculateSecondDelivery(formattedDate, formData.frequency),
     };
-
+  
     const response = await fetch(`${config.backendUrl}/api/delivery-schedule`, {
       method: "POST",
       headers: {
@@ -68,6 +68,7 @@ function DeliverySchedule() {
       frequency: "",
     });
   }
+  
 
   async function handleUpdateDelivery(delivery) {
     const updatedDelivery = {

@@ -1,20 +1,49 @@
+/* Base styles */
 .analytics-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    }
-    
-    .line-chart,
-    .bar-chart,
-    .pie-chart,
-    .consumables-bar-chart{
+    margin-top: 70px; /* Ensure content is below the Navbar links */
+  }
+  
+  .chart-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 100%; /* Take up the full width on small screens */
+    margin-bottom: 20px; /* Add some spacing between charts */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (min-width: 768px) {
+    .analytics-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around; /* Distribute space evenly between charts */
     }
-    
-    
+  
+    .chart-container {
+      width: 45%; /* Display two charts per row */
+      margin: 10px; /* Add some margin between charts */
+    }
+    .chart-container:nth-child(odd) {
+      margin-right: 10px; /* Add right margin to odd charts for separation */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .chart-container {
+      width: 80%; /* Display one smaller chart per row on mobile */
+      margin: 10px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .chart-container {
+      width: 30%; /* Further adjust width for even larger screens */
+      margin: 10px; /* Add margin for better separation */
+    }
+  }
+  

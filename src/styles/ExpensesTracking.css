@@ -1,21 +1,27 @@
+/* Apply mobile responsiveness using media queries */
+
+/* Base styles */
 .expenses-tracking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 20px; /* Reduced padding for smaller screens */
+  margin-top: 30px; /* Ensure content is below the navbar */
 }
 
+/* Title */
 .expenses-tracking-title {
-  color:  #1f7a74;
-  font-size: 36px;
+  color: #1f7a74;
+  font-size: 24px; /* Smaller font size for better fit on small screens */
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 20px; 
+  margin-top: 70px;
 }
 
+/* Table */
 .expenses-tracking-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 50px;
 }
 
 .expenses-tracking-table th {
@@ -29,18 +35,20 @@
   border: 1px solid #1f7a74;
   padding: 10px;
   text-align: left;
+  font-size: 14px; /* Smaller font size for better fit on small screens */
 }
 
+/* Form */
 .expenses-tracking-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Stack input fields in a column on small screens */
   align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px; /* Reduced margin for spacing */
 }
 
 .expenses-tracking-form input {
-  margin-right: 10px;
+  width: 100%; /* Full width for smaller screens */
+  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #1f7a74;
   border-radius: 5px;
@@ -55,8 +63,9 @@
   cursor: pointer;
 }
 
+/* Total Expenses */
 .total-expenses {
   color: #1f7a74;
-  font-size: 24px;
+  font-size: 20px; /* Slightly smaller font size for smaller screens */
   font-weight: bold;
 }
